@@ -2083,16 +2083,16 @@ PageRefresh();
 window.onload=function() {
 	var links=document.getElementsByTagName('a');
 
-for (i=0; i<links.length; i++) {
+    for (i=0; i<links.length; i++) {
 	newlinks=links[i].innerText; 
 	if (newlinks.substring(0,4)=='HP H'){
             newer=newlinks.split(':');
     
-	   links[i].innerText=newer[1];
+	    links[i].innerText=newer[1];
               if (newer[2]) {
                    links[i].innerText=newer[1]+newer[2];
               }
-       }
+         }
     }
    
 };
