@@ -2086,14 +2086,14 @@ window.onload=function() {
 for (i=0; i<links.length; i++) {
 	newlinks=links[i].innerText; 
 	if (newlinks.substring(0,4)=='HP H'){
-    newer=newlinks.split(':');
+            newer=newlinks.split(':');
     
-	links[i].innerText=newer[1];
-    if (newer[2]) {
-        links[i].innerText=newer[1]+newer[2];
+	   links[i].innerText=newer[1];
+              if (newer[2]) {
+                   links[i].innerText=newer[1]+newer[2];
+              }
+       }
     }
-}
-  }
    
 };
 
