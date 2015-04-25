@@ -24,26 +24,18 @@ function showCard(myid, which) {
   counter ++;
  
   //alert(this.id); //the id at the time of caller
-  //alert (counter);
-  //alert(which);
+
   prev=caught;
-  //prevID=
+
   caught=document.getElementById(myid.id).innerText;
-     //alert(prev);
-     // alert (caught);
+
   if (prev==caught){
     alert("score!");
-          //alert(counter);
-          //alert(which);
-            //x=turns[counter];
-            //alert(myid.id);
+   
  
-            //newer=(turns[(which.id)-1]);
-              //alert(newer);
     document.getElementById(turns[counter-1]).innerText="turn"+counter;
     document.getElementById(turns[counter]).innerText="turn"+ (counter+1);
-        //alert(turns[counter]);
-        //alert(turns[counter-1]);
+
   }
   else {
     
@@ -99,4 +91,30 @@ td {
 </html>
 http://jsbin.com/fodabu/2/edit
 
+*/
+
+////////////////////// later //////////////////////
+
+/*
+var counter=0;
+function flipcheck() {
+    counter ++;
+    if (parseInt(counter/2)===counter/2) {
+        flipit(this); //the id at the time of caller
+    }
+}
+    
+
+function flipit(theTd){
+ 
+  alert (theTd.id);  //0based index
+  alert ( parseInt(theTd.id)-1); //prev sq
+  var prev=( parseInt(theTd.id)-1);
+  
+  //minus 1 will need to be rand numb
+  
+  document.getElementById(theTd.id).innerText="bye";
+  document.getElementById(prev).innerText="hello";
+    
+}
 */
