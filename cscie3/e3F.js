@@ -1,189 +1,85 @@
+// noprotect
 var tds= document.getElementsByTagName("td");
-for (var i=0; i<tds.length; i++) {
-    tds[i].setAttribute("id", i+1);
+var turns= []; //id of td cliked goes in each click
+var cardValue=[];
+var counter=1;//not used
+var caughtVal="999999";
+var prevVal="5555555555555";
+//data-vals starts as 444 as a sentinel val
+var cardVals=['','\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4','\u2205', '\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4','\u2205'];
+//createCard is the random number between 0 and 15 to pull card val out of array and then pop it off
+
+for (var i=15; i>-1; i--) {
+  //alert('hello');
+    tds[i].setAttribute("id", i+1); //frst the 15th td is set to id 16
     tds[i].addEventListener("click", countCard);
-  
-  //create array of clicked items ids
-  //data-vals represent card value
-  //innterText will be face of card
-  //will have to compare data-vals vs face 
-  //will have to set dyn the data-vls
-   
-}
+    //alert(tds[i].id);
+    if (tds[i].getAttribute('data-vals')=='444'){
+      //attach a random val
+      //pop it off the array
+      createCard=Math.floor((Math.random() * i) + 1); //go down and get 1 smaller 
+      //alert(createCard);
 
-tds[1].setAttribute("data-vals", "232323");
-var test=tds[1].getAttribute("data-vals"); //put card
-//value into custm attrib
-//then get
-//then test
-alert(test);
-
-//var turns= new Array();
-var turns= [];
-
-  function countCard(){
-    turns.push(this.id);
-    var which=this.id;
-    showCard(this, which);//goes and returns to alert
-   // alert(turns[turns.length-1]); //id in the array
-    
-  }
-
-
-var counter=-1;
-var caught="";
-function showCard(myid, which) {
-  counter ++;
- 
-  //alert(this.id); //the id at the time of caller
-  //alert (counter);
-  //alert(which);
-  prev=caught;
-  //prevID=
-  caught=document.getElementById(myid.id).innerText;
-     //alert(prev);
-     // alert (caught);
-  if (prev==caught){
-    alert("score!");
-          //alert(counter);
-          //alert(which);
-            //x=turns[counter];
-            //alert(myid.id);
- 
-            //newer=(turns[(which.id)-1]);
-              //alert(newer);
-    var repl= document.getElementById(turns[counter-1]).getAttribute("data-vals");
-    alert(repl);
-    document.getElementById(turns[counter-1]).innerText=repl;
-    
-    var repl2= document.getElementById(turns[counter]).getAttribute("data-vals");
-    //document.getElementById(turns[counter-1]).innerText="turn"+counter;
-    //document.getElementById(turns[counter]).innerText="turn"+ (counter+1);
-    
-    document.getElementById(turns[counter]).innerText=repl2;
-    
-        //alert(turns[counter]);
-        //alert(turns[counter-1]);
-  }
-  else {
-    
-    
-  }
-}
-   
-
-
-
-
-
-
-/*
-var counter=0;
-function flipcheck() {
-    counter ++;
-    if (parseInt(counter/2)===counter/2) {
-        flipit(this); //the id at the time of caller
+      tds[i].setAttribute('data-vals', cardVals[createCard]);
+      cardVals.splice(createCard, 1); //at position rnd remove item
+        //alert(i);
+      //alert(tds[i].getAttribute('data-vals'));
+      //alert(cardVals.length);
+      //decrement counter
     }
-}
+
+  }
+////////////////////////////////////////////////
+
+//alert(tds[0].getAttribute('data-vals'));
+function countCard(){ //first fn on click
+ // if (turns.length<2){
+      //turns.push(this.id);
+
     
-
-function flipit(theTd){
- 
-  alert (theTd.id);  //0based index
-  alert ( parseInt(theTd.id)-1); //prev sq
-  var prev=( parseInt(theTd.id)-1);
-  
-  //minus 1 will need to be rand numb
-  
-  document.getElementById(theTd.id).innerText="bye";
-  document.getElementById(prev).innerText="hello";
+        if (turns.length===0){
+          turns.push(this.id);
+          alert("pushed");
+               var repl1= document.getElementById(turns[0]).getAttribute("data-vals");
+                document.getElementById(turns[0]).innerText=repl1;
+          //turns now has 1 item
+        }
+        else if (turns.length===1){
+          turns.push(this.id);
+          
+        
+          if (document.getElementById(turns[0]).getAttribute('data-vals') == document.getElementById(turns[1]).getAttribute('data-vals')) 
+          {
+                var repl3= document.getElementById(turns[0]).getAttribute("data-vals");
+                document.getElementById(turns[0]).innerText=repl3;
+                var repl2= document.getElementById(turns[1]).getAttribute("data-vals");
+                document.getElementById(turns[1]).innerText=repl2;
+                alert("score!!");
+                document.getElementById(turns[0]).removeEventListener("click", countCard);
+                document.getElementById(turns[1]).removeEventListener("click", countCard);
+     
+                turns=[];
+          }
+      }
+      else {
+        
+                var repl7= document.getElementById(turns[0]).getAttribute("data-vals");
+                document.getElementById(turns[0]).innerText=repl7;
+                var repl8= document.getElementById(turns[1]).getAttribute("data-vals");
+                document.getElementById(turns[1]).innerText=repl8;
+                alert(turns[1]);
+                setTimeout(flip, 1000);
     
+      }
+
 }
-*/
 
+function flip() {
 
-//css
-
-/*
-table td {
-    border: 1px solid red;
-}
-td {
-    height: 30px;
-    width 30px;
-    cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
+                document.getElementById(turns[0]).innerText="H";
+                document.getElementById(turns[1]).innerText="H";
+                turns=[];
 }
 
 
-*/
 
-
-//html
-
-/*
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>JS Bin</title>
-</head>
-<body>
-<table>
-    <tr>
-        <td data-vals="99999">222</td> 
-        <td data-vals="45333">888</td> 
-        <td data-vals="44333">666</td> 
-        <td data-vals="231214">555</td> 
-    </tr>
-    <tr>
-        <td data-vals="94993">333</td> 
-        <td data-vals="22222222">666</td> 
-        <td data-vals="75646">7777</td> 
-        <td data-vals="5587439">999</td> 
-    </tr>
-    <tr>
-        <td data-vals="457403">555</td> 
-        <td data-vals="9884848484">888</td> 
-        <td data-vals="33948">333</td> 
-        <td data-vals="565656">444</td> 
-    </tr>
-    <tr>
-         <td data-vals="33222">444</td> 
-         <td data-vals="64646">222</td> 
-         <td data-vals="282828">7777</td> 
-         <td data-vals="32334">999</td> 
-     </tr>
-</table>
-</body>
-</html>
-http://jsbin.com/fodabu/2/edit
-
-*/
-
-////////////////////// later //////////////////////
-
-/*
-var counter=0;
-function flipcheck() {
-    counter ++;
-    if (parseInt(counter/2)===counter/2) {
-        flipit(this); //the id at the time of caller
-    }
-}
-    
-
-function flipit(theTd){
- 
-  alert (theTd.id);  //0based index
-  alert ( parseInt(theTd.id)-1); //prev sq
-  var prev=( parseInt(theTd.id)-1);
-  
-  //minus 1 will need to be rand numb
-  
-  document.getElementById(theTd.id).innerText="bye";
-  document.getElementById(prev).innerText="hello";
-    
-}
-*/
