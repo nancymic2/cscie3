@@ -32,9 +32,9 @@ function countCard(){ //first fn on click
     
         if (turns.length===0){
           turns.push(this.id);
-          alert("pushed");
-               var repl1= document.getElementById(turns[0]).getAttribute("data-vals");
-                document.getElementById(turns[0]).innerText=repl1;
+        
+          var repl1= document.getElementById(turns[0]).getAttribute("data-vals");
+          document.getElementById(turns[0]).innerText=repl1;
           //turns now has 1 item
         }
         else if (turns.length===1){
@@ -47,7 +47,7 @@ function countCard(){ //first fn on click
                 document.getElementById(turns[0]).innerText=repl3;
                 var repl2= document.getElementById(turns[1]).getAttribute("data-vals");
                 document.getElementById(turns[1]).innerText=repl2;
-                alert("score!!");
+                alert("YOU'VE GOT A MATCH!");
                 document.getElementById(turns[0]).removeEventListener("click", countCard);
                 document.getElementById(turns[1]).removeEventListener("click", countCard);
      
@@ -60,7 +60,7 @@ function countCard(){ //first fn on click
                 document.getElementById(turns[0]).innerText=repl7;
                 var repl8= document.getElementById(turns[1]).getAttribute("data-vals");
                 document.getElementById(turns[1]).innerText=repl8;
-                alert(turns[1]);
+               
                 setTimeout(flip, 1000);
     
       }
@@ -68,11 +68,16 @@ function countCard(){ //first fn on click
 }
 
 function flip() {
-
-                document.getElementById(turns[0]).innerText="H";
-                document.getElementById(turns[1]).innerText="H";
+                document.getElementById(turns[0]).style.color="purple";
+                document.getElementById(turns[0]).innerText="   N   ";
+                document.getElementById(turns[1]).style.color="purple";
+                document.getElementById(turns[1]).innerText="  N   ";
                 turns=[];
 }
+
+
+
+
 
 
 
