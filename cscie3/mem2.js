@@ -47,7 +47,7 @@ function countCard(){ //first fn on click
          
                     turns=[];
               }
-        }
+        
               else {
             
                     var repl7= document.getElementById(turns[0]).getAttribute("data-vals");
@@ -58,6 +58,7 @@ function countCard(){ //first fn on click
                     setTimeout(flip, 1000);
         
               }
+       }
 
 }
 ///////////////////////////////////////////////////
