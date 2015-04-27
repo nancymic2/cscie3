@@ -7,17 +7,17 @@ var cardVals=['','\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4'
 
 /////////////////////////////////////////////////
 for (var i=15; i>-1; i--) {
-      tds[i].setAttribute("id", i+1); //frst the 15th td is set to id 16
-      tds[i].addEventListener("click", countCard);
+        tds[i].setAttribute("id", i+1); //frst the 15th td is set to id 16
+        tds[i].addEventListener("click", countCard);
     
-    if (tds[i].getAttribute('data-vals')=='444'){
-          //attach a random val
-          //pop it off the array
-          createCard=Math.floor((Math.random() * i) + 1); //go down and get 1 smaller 
-          tds[i].setAttribute('data-vals', cardVals[createCard]);
-          cardVals.splice(createCard, 1); //at position rnd remove item
-          //decrement counter
-    }
+        if (tds[i].getAttribute('data-vals')=='444'){
+              //attach a random val
+              //pop it off the array
+              createCard=Math.floor((Math.random() * i) + 1); //go down and get 1 smaller 
+              tds[i].setAttribute('data-vals', cardVals[createCard]);
+              cardVals.splice(createCard, 1); //at position rnd remove item
+              //decrement counter
+        }
 
 }
 ////////////////////////////////////////////////
@@ -47,17 +47,17 @@ function countCard(){ //first fn on click
          
                     turns=[];
               }
-       }
-       else {
+        }
+              else {
+            
+                    var repl7= document.getElementById(turns[0]).getAttribute("data-vals");
+                    document.getElementById(turns[0]).innerText=repl7;
+                    var repl8= document.getElementById(turns[1]).getAttribute("data-vals");
+                    document.getElementById(turns[1]).innerText=repl8;
+                   
+                    setTimeout(flip, 1000);
         
-                var repl7= document.getElementById(turns[0]).getAttribute("data-vals");
-                document.getElementById(turns[0]).innerText=repl7;
-                var repl8= document.getElementById(turns[1]).getAttribute("data-vals");
-                document.getElementById(turns[1]).innerText=repl8;
-               
-                setTimeout(flip, 1000);
-    
-      }
+              }
 
 }
 ///////////////////////////////////////////////////
