@@ -24,6 +24,8 @@ for (var i=15; i>-1; i--) {
 
 
 function countCard(){ //first fn on click
+
+
     
         if (turns.length===0){
               turns.push(this.id);
@@ -46,6 +48,19 @@ function countCard(){ //first fn on click
                     document.getElementById(turns[1]).removeEventListener("click", countCard);
          
                     turns=[];
+                  ////////////////////////////
+                    var tdsUsed = document.getElementsByTagName("td");
+                    for (var k=0; k<16; k++) {
+                        arrayOfTds.push(tdsUsed[k].innerText);
+                        //alert(tdsUsed[k].innerText);
+                    }
+                    allTds=arrayOfTds.toString();
+                    if ((allTds.split('N').length)<3){
+                                            
+                        alert("GAME OVER");
+                        //location.reload();
+                    }
+                   //////////////////////////////////
               }
         
               else {
