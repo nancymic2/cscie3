@@ -4,7 +4,7 @@ var turns= []; //id of td cliked goes in each click
 //data-vals starts as 444 as a sentinel val
 var cardVals=['','\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4','\u2205', '\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4','\u2205'];
 //createCard is the random number between 0 and 15 to pull card val out of array and then pop it off
-
+var arrayOfTds=[];
 /////////////////////////////////////////////////
 for (var i=15; i>-1; i--) {
         tds[i].setAttribute("id", i+1); //frst the 15th td is set to id 16
