@@ -4,7 +4,9 @@ var turns= []; //id of td cliked goes in each click
 //data-vals starts as 444 as a sentinel val
 var cardVals=['','\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4','\u2205', '\u2666', '\u2660','\u2663','\u2665','\u2248','\u03a3','\u21d4','\u2205'];
 //createCard is the random number between 0 and 15 to pull card val out of array and then pop it off
+var numCards=0;
 var arrayOfTds=[];
+
 /////////////////////////////////////////////////
 for (var i=15; i>-1; i--) {
         tds[i].setAttribute("id", i+1); //frst the 15th td is set to id 16
@@ -25,8 +27,7 @@ for (var i=15; i>-1; i--) {
 
 function countCard(){ //first fn on click
 
-
-    
+         arrayOfTds=[];
         if (turns.length===0){
               turns.push(this.id);
               var repl1= document.getElementById(turns[0]).getAttribute("data-vals");
@@ -46,9 +47,9 @@ function countCard(){ //first fn on click
                     alert("YOU'VE GOT A MATCH!");
                     document.getElementById(turns[0]).removeEventListener("click", countCard);
                     document.getElementById(turns[1]).removeEventListener("click", countCard);
-         
+                    
                     turns=[];
-                  ////////////////////////////
+                                ////////////////////////////
                     var tdsUsed = document.getElementsByTagName("td");
                     for (var k=0; k<16; k++) {
                         arrayOfTds.push(tdsUsed[k].innerText);
@@ -61,6 +62,8 @@ function countCard(){ //first fn on click
                         //location.reload();
                     }
                    //////////////////////////////////
+
+                    
               }
         
               else {
@@ -79,15 +82,73 @@ function countCard(){ //first fn on click
 ///////////////////////////////////////////////////
 function flip() {
                 document.getElementById(turns[0]).style.color="purple";
-                document.getElementById(turns[0]).innerText="   N   ";
+                document.getElementById(turns[0]).innerText="N";
                 document.getElementById(turns[1]).style.color="purple";
-                document.getElementById(turns[1]).innerText="  N   ";
+                document.getElementById(turns[1]).innerText="N";
                 turns=[];
+}
+
+
+/*
+ table td {
+    table-layout: fixed;   
+}
+td {
+   overflow: hidden;
+   width: 140px; 
+  width 30px;
+  cursor: pointer;
+  font-size: 50px;
+  font-weight: bold;
+  color: purple;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 90px;
+  padding-left: 25px;
 }
 
 
 
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+<table cellspacing ="12">
+    <tr>
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+    </tr>
+    <tr>
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+    </tr>
+    <tr>
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+    </tr>
+    <tr>
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+         <td data-vals="444">&nbsp;&nbsp;N&nbsp;</td> 
+     </tr>
+</table>
+</body>
+</html> 
+  
 
+ http://jsbin.com/hunigi/7/edit?html,css,js,output 
 
-
+  
+  
+  */
