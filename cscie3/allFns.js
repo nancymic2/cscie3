@@ -64,3 +64,6 @@ this.style.opacity="0.5";
     clicker++;
 //this.style.opacity="1";
 }  
+
+
+//http://jsfiddle.net/nancymic2/zsLyedam/41/
