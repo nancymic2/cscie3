@@ -2,7 +2,8 @@
 //check click one by one
 //if the id clicked is not == to the id at that
 //place in the array, immed stop
-var audio = new Audio('http://nancymichell.us/E3/sound.mp3');
+var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
+var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
 
 
 squareClicks=document.getElementsByTagName("td");
@@ -24,7 +25,7 @@ var bright=document.getElementsByTagName("td");
     clicker=0;
 var newcount=0;
 var counter=0;
-var counter9=Math.floor(Math.random() * (11 - 5)) + 5;
+var counter9=Math.floor(Math.random() * (5 - 2)) + 2;
 sequence=[]; //sequence=[]; //empty here
 var runnit=setInterval(function() {
 var glowed=document.getElementsByTagName("td");    
@@ -68,12 +69,16 @@ this.style.opacity="0.5";
     //alert(this.id);
     //need another counter
     clicker++;
+    if (clicker>=sequence.length){
+        audiow.play();
+    }
+    
 //this.style.opacity="1";
 }  
-
 
 
 
 //http://jsfiddle.net/nancymic2/zsLyedam/41/
 //http://jsfiddle.net/nancymic2/zsLyedam/45/ sound
 //http://jsfiddle.net/nancymic2/zsLyedam/52/ opacity
+//http://jsfiddle.net/nancymic2/zsLyedam/56/ sound
