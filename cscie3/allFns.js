@@ -82,3 +82,40 @@ this.style.opacity="0.5";
 //http://jsfiddle.net/nancymic2/zsLyedam/45/ sound
 //http://jsfiddle.net/nancymic2/zsLyedam/52/ opacity
 //http://jsfiddle.net/nancymic2/zsLyedam/56/ sound
+
+
+/*
+
+<input type="button" id="button" value="play"></input>
+
+<div id="board">
+    <table id="fade" class="faded" cellspacing ="0">
+    <tr>
+      <td id="a1"><img src="http://nancymichell.us/E3/img/brown.png"></td>
+         <td id="a2"><img src="http://nancymichell.us/E3/img/red.png"></td> 
+         <td id="a3"><img src="http://nancymichell.us/E3/img/green.png"></td> 
+
+    </tr>
+    <tr>
+         <td id="a4"><img src="http://nancymichell.us/E3/img/yellow.png"></td> 
+         <td id="a5"><img src="http://nancymichell.us/E3/img/dkblue.png"></td> 
+         <td id="a6"><img src="http://nancymichell.us/E3/img/blue.png"></td> 
+
+    </tr>
+    <tr>
+         <td id="a7"><img src="http://nancymichell.us/E3/img/org.png"></td> 
+         <td id="a8"><img src="http://nancymichell.us/E3/img/black.png"></td> 
+         <td id="a9"><img src="http://nancymichell.us/E3/img/purple.png"></td> 
+
+    </tr>
+    
+  </div>
+
+  */
+
+  /*
+#button {
+    margin: 40px;
+}
+
+  */
