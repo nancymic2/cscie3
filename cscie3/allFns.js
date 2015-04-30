@@ -119,3 +119,5 @@ this.style.opacity="0.5";
 }
 
   */
+
+// jquery 1.9.1
