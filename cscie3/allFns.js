@@ -17,11 +17,14 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 function play(){
-//document.getElementById("fade").style.opacity="1";
+var bright=document.getElementsByTagName("td");    
+    for (var q=0; q<bright.length; q++){
+        bright[q].style.opacity="1"; 
+    }
     clicker=0;
 var newcount=0;
 var counter=0;
-var counter9=Math.floor(Math.random() * (7 - 3)) + 3;
+var counter9=Math.floor(Math.random() * (11 - 5)) + 5;
 sequence=[]; //sequence=[]; //empty here
 var runnit=setInterval(function() {
 var glowed=document.getElementsByTagName("td");    
@@ -58,7 +61,7 @@ this.style.opacity="0.5";
         //alert(this.id);
     //for (var z=0; z<sequence.length; z++){
         if (this.id !==(sequence[clicker])){ 
-            alert("lost");
+           // alert("lost");
             audio.play();
         }
    // }
@@ -70,5 +73,7 @@ this.style.opacity="0.5";
 
 
 
+
 //http://jsfiddle.net/nancymic2/zsLyedam/41/
 //http://jsfiddle.net/nancymic2/zsLyedam/45/ sound
+//http://jsfiddle.net/nancymic2/zsLyedam/52/ opacity
