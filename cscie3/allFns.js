@@ -2,6 +2,8 @@
 //check click one by one
 //if the id clicked is not == to the id at that
 //place in the array, immed stop
+var audio = new Audio('http://nancymichell.us/E3/sound.mp3');
+
 
 squareClicks=document.getElementsByTagName("td");
 
@@ -15,7 +17,7 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 function play(){
-    //reset opacity to ful
+//document.getElementById("fade").style.opacity="1";
     clicker=0;
 var newcount=0;
 var counter=0;
@@ -57,6 +59,7 @@ this.style.opacity="0.5";
     //for (var z=0; z<sequence.length; z++){
         if (this.id !==(sequence[clicker])){ 
             alert("lost");
+            audio.play();
         }
    // }
     //alert(this.id);
@@ -66,4 +69,6 @@ this.style.opacity="0.5";
 }  
 
 
+
 //http://jsfiddle.net/nancymic2/zsLyedam/41/
+//http://jsfiddle.net/nancymic2/zsLyedam/45/ sound
