@@ -1,7 +1,3 @@
-//now push random ids into array
-//check click one by one
-//if the id clicked is not == to the id at that
-//place in the array, immed stop
 var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
 var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
 squareClicks=document.getElementsByTagName("td");
@@ -13,6 +9,7 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 function play(){
+    document.getElementById('winlose').style.visibility="hidden";
     for (var y=1; y<=squareClicks.length; y++){
         document.getElementById("a"+y).addEventListener("click", score);  
     }
@@ -46,9 +43,13 @@ function play(){
 } //end play function
 
 function score(){
+    var winlose=document.getElementById('winlose');
     if (this.id !==(sequence[clicker])){ 
             audio.play();
-            alert("lost");
+       
+            winlose.innerHTML="<img src='http://nancymichell.us/E3/lose.gif'>";
+            winlose.style.visibility="visible";
+        
             for (var r=1; r<10; r++){
                 document.getElementById("a"+r).removeEventListener("click", score);  
             }
@@ -56,13 +57,14 @@ function score(){
 
     clicker++;
     if (clicker>=sequence.length){
-        audiow.play();
-        for (var r=1; r<10; r++){
-            document.getElementById("a"+r).removeEventListener("click", score);  
-        }
+            audiow.play();
+            winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
+            winlose.style.visibility="visible";
+            for (var r=1; r<10; r++){
+                document.getElementById("a"+r).removeEventListener("click", score);  
+            }
     }
 }  
-
 
 
 
@@ -73,6 +75,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/zsLyedam/73/ hover
 //http://jsfiddle.net/nancymic2/zsLyedam/77/ remove event listener
 //http://jsfiddle.net/nancymic2/zsLyedam/80/ format - commented
+//http://jsfiddle.net/nancymic2/zsLyedam/94/  win lose images
 
 
 /*
