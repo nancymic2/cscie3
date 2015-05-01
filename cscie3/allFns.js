@@ -4,12 +4,11 @@
 //place in the array, immed stop
 var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
 var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
-
-
 squareClicks=document.getElementsByTagName("td");
 
 for (var y=1; y<=squareClicks.length; y++){
 document.getElementById("a"+y).addEventListener("click", score);  
+    //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
 }
 
 button.addEventListener("click", play);
@@ -18,23 +17,23 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 function play(){
-var bright=document.getElementsByTagName("td");    
+/*var bright=document.getElementsByTagName("td");    
     for (var q=0; q<bright.length; q++){
         bright[q].style.opacity="1"; 
-    }
+    }*/
     clicker=0;
 var newcount=0;
 var counter=0;
-var counter9=Math.floor(Math.random() * (5 - 2)) + 2;
+var counter9=Math.floor(Math.random() * (8 - 4)) + 4;
 sequence=[]; //sequence=[]; //empty here
 var runnit=setInterval(function() {
 var glowed=document.getElementsByTagName("td");    
 var lit=Math.floor((Math.random() * 9) + 1); 
-    //maybe pass rnd and decrement it here
+ 
 sequence.push(glowed[lit-1].id);
-             // alert(glowed[lit-1].id);
+           
 counter++;
-    //alert(counter);
+
 blink (lit, counter);  //.delay(3000);;
 }, 700);
 
@@ -44,9 +43,7 @@ return $("#" + "a" + i).delay(500).fadeOut(200).fadeIn(200);
 }
 
 function stop(i, counter){
-     ///increment counter here in loop?
-     //newcount++;   
-     // alert(counter);
+
     if (counter>counter9){
       clearInterval(runnit);
     }
@@ -56,24 +53,19 @@ function stop(i, counter){
 } //end play function
 
 function score(){
-this.style.opacity="0.5";
-    //alert(sequence[clicker]);
-    //alert(clicker);
-        //alert(this.id);
-    //for (var z=0; z<sequence.length; z++){
+//this.style.opacity="0.5";
+    //this.style.opacity="1";
+
         if (this.id !==(sequence[clicker])){ 
-           // alert("lost");
+        
             audio.play();
         }
-   // }
-    //alert(this.id);
-    //need another counter
+
     clicker++;
     if (clicker>=sequence.length){
         audiow.play();
     }
-    
-//this.style.opacity="1";
+
 }  
 
 
@@ -82,6 +74,7 @@ this.style.opacity="0.5";
 //http://jsfiddle.net/nancymic2/zsLyedam/45/ sound
 //http://jsfiddle.net/nancymic2/zsLyedam/52/ opacity
 //http://jsfiddle.net/nancymic2/zsLyedam/56/ sound
+//http://jsfiddle.net/nancymic2/zsLyedam/73/ hover
 
 
 /*
@@ -116,6 +109,10 @@ this.style.opacity="0.5";
   /*
 #button {
     margin: 40px;
+}
+
+td:hover {
+    opacity: 0.6;
 }
 
   */
