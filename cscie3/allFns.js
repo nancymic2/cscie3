@@ -1,13 +1,10 @@
 var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
 var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
 squareClicks=document.getElementsByTagName("td");
-
-
 button.addEventListener("click", play);
-
-/////////////////////////////////////
 var clicker=0;
 var sequence=[];
+
 function play(){
     document.getElementById('winlose').style.visibility="hidden";
     for (var y=1; y<=squareClicks.length; y++){
@@ -57,14 +54,14 @@ function score(){
 
     clicker++;
     if (clicker>=sequence.length){
-            audiow.play();
-            winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
-            winlose.style.visibility="visible";
-            for (var r=1; r<10; r++){
-                document.getElementById("a"+r).removeEventListener("click", score);  
-            }
+        audiow.play();
+        winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
+        winlose.style.visibility="visible";
+        for (var r=1; r<10; r++){
+            document.getElementById("a"+r).removeEventListener("click", score);  
+        }
     }
-}  
+}   
 
 
 
