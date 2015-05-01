@@ -5,11 +5,11 @@
 var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
 var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
 squareClicks=document.getElementsByTagName("td");
-
+/*
 for (var y=1; y<=squareClicks.length; y++){
 document.getElementById("a"+y).addEventListener("click", score);  
     //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
-}
+}*/
 
 button.addEventListener("click", play);
 
@@ -17,6 +17,11 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 function play(){
+    for (var y=1; y<=squareClicks.length; y++){
+document.getElementById("a"+y).addEventListener("click", score);  
+    //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
+}
+    
 /*var bright=document.getElementsByTagName("td");    
     for (var q=0; q<bright.length; q++){
         bright[q].style.opacity="1"; 
@@ -59,14 +64,23 @@ function score(){
         if (this.id !==(sequence[clicker])){ 
         
             audio.play();
+            for (var r=1; r<10; r++){
+            document.getElementById("a"+r).removeEventListener("click", score);  
+            //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
+            }
         }
 
     clicker++;
     if (clicker>=sequence.length){
         audiow.play();
+                    for (var r=1; r<10; r++){
+            document.getElementById("a"+r).removeEventListener("click", score);  
+            //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
+            }
     }
 
 }  
+
 
 
 
@@ -75,6 +89,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/zsLyedam/52/ opacity
 //http://jsfiddle.net/nancymic2/zsLyedam/56/ sound
 //http://jsfiddle.net/nancymic2/zsLyedam/73/ hover
+//http://jsfiddle.net/nancymic2/zsLyedam/77/ remove event listener
 
 
 /*
