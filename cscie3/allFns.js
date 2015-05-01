@@ -5,11 +5,7 @@
 var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
 var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
 squareClicks=document.getElementsByTagName("td");
-/*
-for (var y=1; y<=squareClicks.length; y++){
-document.getElementById("a"+y).addEventListener("click", score);  
-    //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
-}*/
+
 
 button.addEventListener("click", play);
 
@@ -18,67 +14,53 @@ var clicker=0;
 var sequence=[];
 function play(){
     for (var y=1; y<=squareClicks.length; y++){
-document.getElementById("a"+y).addEventListener("click", score);  
-    //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
-}
-    
-/*var bright=document.getElementsByTagName("td");    
-    for (var q=0; q<bright.length; q++){
-        bright[q].style.opacity="1"; 
-    }*/
-    clicker=0;
-var newcount=0;
-var counter=0;
-var counter9=Math.floor(Math.random() * (8 - 4)) + 4;
-sequence=[]; //sequence=[]; //empty here
-var runnit=setInterval(function() {
-var glowed=document.getElementsByTagName("td");    
-var lit=Math.floor((Math.random() * 9) + 1); 
- 
-sequence.push(glowed[lit-1].id);
-           
-counter++;
-
-blink (lit, counter);  //.delay(3000);;
-}, 700);
-
-function blink(i, counter){
-stop(i, counter);  
-return $("#" + "a" + i).delay(500).fadeOut(200).fadeIn(200);
-}
-
-function stop(i, counter){
-
-    if (counter>counter9){
-      clearInterval(runnit);
+        document.getElementById("a"+y).addEventListener("click", score);  
     }
-   
-}
+
+    clicker=0;
+    var newcount=0;
+    var counter=0;
+    var counter9=Math.floor(Math.random() * (8 - 4)) + 4;
+    sequence=[]; //sequence=[]; //empty here
+    var runnit=setInterval(function() {
+        var glowed=document.getElementsByTagName("td");    
+        var lit=Math.floor((Math.random() * 9) + 1); 
+ 
+        sequence.push(glowed[lit-1].id);
+        counter++;
+
+        blink (lit, counter);  //.delay(3000);;
+    }, 700);
+
+    function blink(i, counter){
+        stop(i, counter);  
+        return $("#" + "a" + i).delay(500).fadeOut(200).fadeIn(200);
+    }
+
+    function stop(i, counter){
+        if (counter>counter9){
+            clearInterval(runnit);
+        }
+    }
 
 } //end play function
 
 function score(){
-//this.style.opacity="0.5";
-    //this.style.opacity="1";
-
-        if (this.id !==(sequence[clicker])){ 
-        
+    if (this.id !==(sequence[clicker])){ 
             audio.play();
+            alert("lost");
             for (var r=1; r<10; r++){
-            document.getElementById("a"+r).removeEventListener("click", score);  
-            //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
+                document.getElementById("a"+r).removeEventListener("click", score);  
             }
-        }
+     }
 
     clicker++;
     if (clicker>=sequence.length){
         audiow.play();
-                    for (var r=1; r<10; r++){
+        for (var r=1; r<10; r++){
             document.getElementById("a"+r).removeEventListener("click", score);  
-            //document.getElementById("a"+y).setAttribute("style", "opacity: 0.3;")
-            }
+        }
     }
-
 }  
 
 
@@ -90,6 +72,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/zsLyedam/56/ sound
 //http://jsfiddle.net/nancymic2/zsLyedam/73/ hover
 //http://jsfiddle.net/nancymic2/zsLyedam/77/ remove event listener
+//http://jsfiddle.net/nancymic2/zsLyedam/80/ format - commented
 
 
 /*
