@@ -5,7 +5,7 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 var arrayFromLocal = [];
-     function Scoring(complexity, wins, losses){
+    function Scoring(complexity, wins, losses){
     this.complexity=complexity;
     this.wins=wins;
     this.losses=losses;
@@ -18,7 +18,6 @@ function play(){
     //get local storage
     var history = localStorage.getItem("histStore");
     if (history){
-            //alert(history);
         // parse the String we got back from localStorage into an 
             //Array of JSON Objects
         var valuesParsed = JSON.parse(history);
@@ -27,19 +26,28 @@ function play(){
         //and push them to the arrayFromLocal Array
 
         var len = valuesParsed.length;
+        var addit=0;
+        var winnit=0;
+        var loseit=0;
         for (var i = 0; i < len; i++) {
             // get data from each JSON Object
             var compl = valuesParsed[i].complexity;
+         
+            addit=addit+compl;
             var win = valuesParsed[i].wins;
+            winnit=winnit+win;
             var loss = valuesParsed[i].losses;
-            //document.getElementById('update').innerHTML+= 
-            
+            loseit=loseit+loss;
             // create new Objects
             var Scores = new Scoring(compl, win, loss);
-            arrayFromLocal.push(Scores); // now e have reinitialized the array 
+            arrayFromLocal.push(Scores); // now we have reinitialized the array 
                  ///with exising vals. later add to array and send to storage
-                //must do in play fn so we can update score always
+
+             //////////////////////////////////////
         }
+        document.getElementById("compl").innerText='your total complexity='+ addit;
+        document.getElementById("win").innerText='your total wins='+ winnit;
+        document.getElementById("loss").innerText='your total losses='+loseit;
     }
 
     document.getElementById('winlose').style.visibility="hidden";
@@ -90,7 +98,7 @@ function score(){
             var newScoring = new Scoring(complexity, wins, losses);
             arrayFromLocal.push(newScoring);
             var  newScoring2 = JSON.stringify(arrayFromLocal);
-            window.localStorage.setItem("histStore", newScoring2);  //test local
+            window.localStorage.setItem("histStore", newScoring2);  //test local 
             winlose.innerHTML="<img src='http://nancymichell.us/E3/lose.gif'>";
             winlose.style.visibility="visible";
         
@@ -110,17 +118,16 @@ function score(){
          var newScoring = new Scoring(complexity, wins, losses);
          arrayFromLocal.push(newScoring);
          var  newScoring2 = JSON.stringify(arrayFromLocal);
-         window.localStorage.setItem("histStore", newScoring2);  //test local stor
+         window.localStorage.setItem("histStore", newScoring2);  //test local stor 
          winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
          winlose.style.visibility="visible";
          for (var r=1; r<10; r++){
             document.getElementById("a"+r).removeEventListener("click", score);  
          }
     }
-  //push scoring obj onto array
- 
 
 }  
+ 
 
 
 
@@ -134,7 +141,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/zsLyedam/94/  win lose images
 //http://jsfiddle.net/nancymic2/b7xzcpbg/15/  sending to local storage but not updating array
 //http://jsfiddle.net/nancymic2/b7xzcpbg/18/  local storage good
-
+//http://jsfiddle.net/nancymic2/b7xzcpbg/57/ scoring!
 /*
 
 <input type="button" id="button" value="play"></input>
