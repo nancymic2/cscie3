@@ -45,9 +45,9 @@ function play(){
 
              //////////////////////////////////////
         }
-        document.getElementById("compl").innerText='your total complexity='+ addit;
-        document.getElementById("win").innerText='your total wins='+ winnit;
-        document.getElementById("loss").innerText='your total losses='+loseit;
+        document.getElementById("compl").innerText= addit;
+        document.getElementById("win").innerText= winnit;
+        document.getElementById("loss").innerText=loseit;
     }
 
     document.getElementById('winlose').style.visibility="hidden";
@@ -142,9 +142,9 @@ function score(){
 //http://jsfiddle.net/nancymic2/b7xzcpbg/15/  sending to local storage but not updating array
 //http://jsfiddle.net/nancymic2/b7xzcpbg/18/  local storage good
 //http://jsfiddle.net/nancymic2/b7xzcpbg/57/ scoring!
-/*
+//http://jsfiddle.net/nancymic2/b7xzcpbg/63/ scoring output
 
-<input type="button" id="button" value="play"></input>
+/* <input type="button" id="button" value="play"></input>
 
 <div id="board">
     <table id="fade" class="faded" cellspacing ="0">
@@ -167,17 +167,32 @@ function score(){
 
     </tr>
     
-  </div>
+  </div><br><table id="scores">
+             <tr><td>Complexity</td><td>Wins</td><td>Losses</td></tr>
+             <tr><td id="compl"></td><td id="win"></td><td id="loss"></td>
+             </tr></table>
+             <div id="winlose"></div>
 
   */
 
   /*
 #button {
-    margin: 40px;
+    margin: 5px;
 }
-
+#scores td {
+  border: 1px solid blue;  
+}
+}
 td:hover {
     opacity: 0.6;
+}
+
+#winlose {
+visibility: hidden;
+z-index: 10;  
+position: absolute;
+    top: 30px;
+    left: 220px;
 }
 
   */
