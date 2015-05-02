@@ -5,13 +5,20 @@ button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
 var arrayFromLocal = [];
+     function Scoring(complexity, wins, losses){
+    this.complexity=complexity;
+    this.wins=wins;
+    this.losses=losses;
+//tries already captured by number of entries in local storage    
+}
+
 function play(){
     arrayFromLocal = []; //always empty array first, fill from store, 
                            //then add from play
     //get local storage
     var history = localStorage.getItem("histStore");
     if (history){
-            alert(history);
+            //alert(history);
         // parse the String we got back from localStorage into an 
             //Array of JSON Objects
         var valuesParsed = JSON.parse(history);
@@ -70,12 +77,7 @@ function play(){
 } //end play function
 
 function score(){
-     function Scoring(complexity, wins, losses){
-    this.complexity=complexity;
-    this.wins=wins;
-    this.losses=losses;
-//tries already captured by number of entries in local storage    
-}
+
         
     var winlose=document.getElementById('winlose');
     if (this.id !==(sequence[clicker])){ 
@@ -85,7 +87,10 @@ function score(){
             var losses=1;
             var wins=0;
             var complexity=sequence.length; //
-             var newScoring = new Scoring(complexity, wins, losses);
+            var newScoring = new Scoring(complexity, wins, losses);
+            arrayFromLocal.push(newScoring);
+            var  newScoring2 = JSON.stringify(arrayFromLocal);
+            window.localStorage.setItem("histStore", newScoring2);  //test local
             winlose.innerHTML="<img src='http://nancymichell.us/E3/lose.gif'>";
             winlose.style.visibility="visible";
         
@@ -103,20 +108,18 @@ function score(){
          var losses=0;
          var complexity=sequence.length; //
          var newScoring = new Scoring(complexity, wins, losses);
+         arrayFromLocal.push(newScoring);
+         var  newScoring2 = JSON.stringify(arrayFromLocal);
+         window.localStorage.setItem("histStore", newScoring2);  //test local stor
          winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
          winlose.style.visibility="visible";
          for (var r=1; r<10; r++){
             document.getElementById("a"+r).removeEventListener("click", score);  
-        }
+         }
     }
   //push scoring obj onto array
-    
-    arrayFromLocal.push(newScoring);
-    var  newScoring2 = JSON.stringify(arrayFromLocal);
-    //update score div on page
-    //json encode
-    //send to local storage
-    window.localStorage.setItem("history", newScoring2);  //test local stor
+ 
+
 }  
 
 
@@ -130,7 +133,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/zsLyedam/80/ format - commented
 //http://jsfiddle.net/nancymic2/zsLyedam/94/  win lose images
 //http://jsfiddle.net/nancymic2/b7xzcpbg/15/  sending to local storage but not updating array
-
+//http://jsfiddle.net/nancymic2/b7xzcpbg/18/  local storage good
 
 /*
 
