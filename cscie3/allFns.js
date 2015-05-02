@@ -144,6 +144,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/b7xzcpbg/57/ scoring!
 //http://jsfiddle.net/nancymic2/b7xzcpbg/63/ broken
 //http://jsfiddle.net/nancymic2/b7xzcpbg/ reverted to 57 //http://jsfiddle.net/nancymic2/b7xzcpbg/57/
+// uncommitted version with alert http://jsfiddle.net/nancymic2/b7xzcpbg/68/
 
 /* <input type="button" id="button" value="play"></input>
 
