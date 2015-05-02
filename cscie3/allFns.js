@@ -1,11 +1,40 @@
-var audio = new Audio('http://nancymichell.us/E3/lose.mp3');
+var audiol = new Audio('http://nancymichell.us/E3/lose.mp3');
 var audiow = new Audio('http://nancymichell.us/E3/win.mp3');
 squareClicks=document.getElementsByTagName("td");
 button.addEventListener("click", play);
 var clicker=0;
 var sequence=[];
-
+var arrayFromLocal = [];
 function play(){
+    arrayFromLocal = []; //always empty array first, fill from store, 
+                           //then add from play
+    //get local storage
+    var history = localStorage.getItem("histStore");
+    if (history){
+            alert(history);
+        // parse the String we got back from localStorage into an 
+            //Array of JSON Objects
+        var valuesParsed = JSON.parse(history);
+
+        // loop through valuesParsed Array of objs, create new hist Objects, 
+        //and push them to the arrayFromLocal Array
+
+        var len = valuesParsed.length;
+        for (var i = 0; i < len; i++) {
+            // get data from each JSON Object
+            var compl = valuesParsed[i].complexity;
+            var win = valuesParsed[i].wins;
+            var loss = valuesParsed[i].losses;
+            //document.getElementById('update').innerHTML+= 
+            
+            // create new Objects
+            var Scores = new Scoring(compl, win, loss);
+            arrayFromLocal.push(Scores); // now e have reinitialized the array 
+                 ///with exising vals. later add to array and send to storage
+                //must do in play fn so we can update score always
+        }
+    }
+
     document.getElementById('winlose').style.visibility="hidden";
     for (var y=1; y<=squareClicks.length; y++){
         document.getElementById("a"+y).addEventListener("click", score);  
@@ -19,7 +48,8 @@ function play(){
     var runnit=setInterval(function() {
         var glowed=document.getElementsByTagName("td");    
         var lit=Math.floor((Math.random() * 9) + 1); 
- 
+         //counter9 will also be complexity
+        //make complexity=counter9
         sequence.push(glowed[lit-1].id);
         counter++;
 
@@ -40,10 +70,22 @@ function play(){
 } //end play function
 
 function score(){
+     function Scoring(complexity, wins, losses){
+    this.complexity=complexity;
+    this.wins=wins;
+    this.losses=losses;
+//tries already captured by number of entries in local storage    
+}
+        
     var winlose=document.getElementById('winlose');
     if (this.id !==(sequence[clicker])){ 
-            audio.play();
-       
+            audiol.play();
+            // add a loss
+           
+            var losses=1;
+            var wins=0;
+            var complexity=sequence.length; //
+             var newScoring = new Scoring(complexity, wins, losses);
             winlose.innerHTML="<img src='http://nancymichell.us/E3/lose.gif'>";
             winlose.style.visibility="visible";
         
@@ -55,13 +97,27 @@ function score(){
     clicker++;
     if (clicker>=sequence.length){
         audiow.play();
-        winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
-        winlose.style.visibility="visible";
-        for (var r=1; r<10; r++){
+        //add a win
+         
+         var wins=1; //untyped javascript hahaha
+         var losses=0;
+         var complexity=sequence.length; //
+         var newScoring = new Scoring(complexity, wins, losses);
+         winlose.innerHTML="<img src='http://nancymichell.us/E3/win.gif'>";
+         winlose.style.visibility="visible";
+         for (var r=1; r<10; r++){
             document.getElementById("a"+r).removeEventListener("click", score);  
         }
     }
-}   
+  //push scoring obj onto array
+    
+    arrayFromLocal.push(newScoring);
+    var  newScoring2 = JSON.stringify(arrayFromLocal);
+    //update score div on page
+    //json encode
+    //send to local storage
+    window.localStorage.setItem("history", newScoring2);  //test local stor
+}  
 
 
 
@@ -73,6 +129,7 @@ function score(){
 //http://jsfiddle.net/nancymic2/zsLyedam/77/ remove event listener
 //http://jsfiddle.net/nancymic2/zsLyedam/80/ format - commented
 //http://jsfiddle.net/nancymic2/zsLyedam/94/  win lose images
+//http://jsfiddle.net/nancymic2/b7xzcpbg/15/  sending to local storage but not updating array
 
 
 /*
