@@ -65,8 +65,8 @@ function countCard(){ //first fn on click
                     if ((allTds.split('N').length)<3){
                                           
                         alert("GAME OVER");
-                        timer();  /////<<<<<<<<<<<<<<<<<<<<<<<<<<<< HERE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                        alert (time);
+                        totalTime=timer();  /////
+                        alert (totalTime);
                         //location.reload();
                     }
                    /////////////
@@ -131,7 +131,7 @@ if (hours2 <= hours1){ //hour not changed
 else {    
    time =secs2-secs1;     
 }
-  alert("YOUR GAME TOOK THIS LONG: " + time); ///////<<<<<<<<<<<<<<<<<<<<<<<< HERE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  alert("YOUR GAME TOOK THIS LONG: " + time); ///////
   return time;   
   
 }
