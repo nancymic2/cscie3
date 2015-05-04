@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>game time</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+    <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+    <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+    <!--script src="js/less-1.3.3.min.js"></script-->
+    <!--script src="justjs.js"></script-->
+     <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
+  
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="justjs.js"></script>
+      
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.js"></script>
+<script src="cards.js"></script>
+<script src="startTime.js"></script> <!--   delete   -->
+
+
+  <link rel="stylesheet" href="final.css">
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.js"></script>
+<script src="final.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">Home</a>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="final.html">Simon</a>
+                        </li>
+                        <li>
+                            <a href="cards.html">Match</a>
+                        </li>
+                        <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Stuff<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="http://nancymichell.us">Me</a>
+                                </li>
+                                <li>
+                                    <a href="http://docs.hpcloud.com">Work</a>
+                                </li>
+                                <li>
+                                    <a href="https://social.msdn.microsoft.com/Search/en-US?query=nancy%20michell&emptyWatermark=true&ac=2">Old Work</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="http://p4.scholarpaws.com">Coming Up</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="http://docs.hpcloud.com/content/documentation/commercial/GA1/ServicesFlow/">code: me. art: M Rosado</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control">
+                        </div> <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://nancymichell.us/s/travel/php/">Travel</a>
+                        </li>
+                        <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="http://extension.harvard.edu">School</a>
+                                </li>
+                                <li>
+                                    <a href="http://p3.scholarpaws.com">My Web tools</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/nancymichell">LinkedIn</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="http://nancymichell.us/examples/final.html">Play dress-up</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+            </nav>
+
+
+<div>
+
+
+<div id="board">
+    <input type="button" id="button" class="btn btn-primary btn-large" value="play"></input>
+    <table id="fade" class="faded" cellspacing ="0">
+    <tr>
+      <td id="a1"><img src="http://nancymichell.us/E3/img/brown.png"></td>
+         <td id="a2"><img src="http://nancymichell.us/E3/img/red.png"></td> 
+         <td id="a3"><img src="http://nancymichell.us/E3/img/green.png"></td> 
+
+    </tr>
+    <tr>
+         <td id="a4"><img src="http://nancymichell.us/E3/img/yellow.png"></td> 
+         <td id="a5"><img src="http://nancymichell.us/E3/img/dkblue.png"></td> 
+         <td id="a6"><img src="http://nancymichell.us/E3/img/blue.png"></td> 
+
+    </tr>
+    <tr>
+         <td id="a7"><img src="http://nancymichell.us/E3/img/org.png"></td> 
+         <td id="a8"><img src="http://nancymichell.us/E3/img/black.png"></td> 
+         <td id="a9"><img src="http://nancymichell.us/E3/img/purple.png"></td> 
+
+    </tr>
+    
+  </div><br>
+             <div id="compl"></div>
+             <div id="win"></div>
+             <div id="loss"></div>
+             <div id="winlose"></div>
+
+</div>
+<div id="myscore">Score...</div>
+<br>
+
+</body>
+</html>
+
+
+</div>
+
+</body>
+</html>
