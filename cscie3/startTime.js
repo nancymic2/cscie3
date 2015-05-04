@@ -8,8 +8,9 @@ function startWorker() {
             w = new Worker("js/demo_workers.js");
         }
         w.onmessage = function(event) {
-            document.getElementById("result").innerHTML = event.data;
-            if (event.data=="90"){  ////new
+            document.getElementById("result").innerHTML = 91-event.data;
+
+            if (event.data=="91"){  ////new
                 document.getElementById("result").innerHTML = "time's up!";
                 stopWorker(w);  ///
             }  /////
