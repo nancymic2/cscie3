@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  body {
+  
+  background-color: black;
+}
+hr {
+  
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 100%;
+}
+
+#me {
+  width: 30px;
+  height: 20px;
+  border-radius: 90px;
+  background-color: green;
+  position: relative;
+  //top: 300px;
+  //left: 500px;
+   top: 600px;
+    left: 190px;
+}
+
+.rays {
+  
+  width: 2px;
+  height: 30px;
+  border-radius: 90px;
+  background-color: silver;
+  
+  
+}
+
+#ray {
+
+  position: absolute;
+  top: 10px;
+ left: 50px;
+}
+#ray2 {
+
+  position: absolute;
+  top: 10px;
+ left: 100px;
+}
+#ray3 {
+
+  position: absolute;
+  top: 10px;
+ left: 150px;
+}
+#ray4 {
+
+  position: absolute;
+  top: 10px;
+ left: 200px;
+}
+#ray5 {
+
+  position: absolute;
+  top: 10px;
+ left: 250px;
+}
+#ray6 {
+
+  position: absolute;
+  top: 10px;
+ left: 300px;
+}
+
+#ray7 {
+
+  position: absolute;
+  top: 10px;
+ left: 350px;
+}
+#ray8 {
+
+  position: absolute;
+  top: 10px;
+ left: 400px;
+}
+#ray9 {
+
+  position: absolute;
+  top: 10px;
+ left: 450px;
+}
+#ray10 {
+
+  position: absolute;
+  top: 10px;
+ left: 500px;
+}
+#ray11 {
+
+  position: absolute;
+  top: 10px;
+ left: 550px;
+}
+#ray12 {
+
+  position: absolute;
+  top: 10px;
+ left: 600px;
+}
+#ray13 {
+
+  position: absolute;
+  top: 10px;
+ left: 650px;
+}
+#ray14 {
+
+  position: absolute;
+  top: 10px;
+ left: 700px;
+}
+#ray15 {
+
+  position: absolute;
+  top: 10px;
+ left: 750px;
+}
+#ray16 {
+
+  position: absolute;
+  top: 10px;
+ left: 800px;
+}
+#ray17 {
+
+  position: absolute;
+  top: 10px;
+ left: 850px;
+}#ray18 {
+
+  position: absolute;
+  top: 10px;
+ left: 900px;
+}
+#ray19 {
+
+  position: absolute;
+  top: 10px;
+ left: 950px;
+}
+#ray20 {
+
+  position: absolute;
+  top: 10px;
+ left: 1000px;
+}
+#ray21 {
+
+  position: absolute;
+  top: 10px;
+ left: 1050px;
+}
+#ray22 {
+
+  position: absolute;
+  top: 10px;
+ left: 1100px;
+}
+#ray23 {
+
+  position: absolute;
+  top: 10px;
+ left: 1150px;
+}
+#ray {
+
+  position: absolute;
+  top: 10px;
+ left: 1200px;
+}
+#ray24 {
+
+  position: absolute;
+  top: 10px;
+ left: 1250px;
+}
+
+</style>
+
+<link rel="stylesheet" href="sh.css" type="text/css"></head>
+<body>
+  <hr>
+      <div class="rays" id="ray"></div>
+      <div class="rays" id="ray2"></div>
+      <div class="rays" id="ray3"></div>
+      <div class="rays" id="ray4"></div>
+      <div class="rays" id="ray5"></div>
+      <div class="rays" id="ray6"></div>
+      <div class="rays" id="ray7"></div>
+      <div class="rays" id="ray8"></div>
+      <div class="rays" id="ray9"></div>
+      <div class="rays" id="ray10"></div>
+      <div class="rays" id="ray11"></div>
+      <div class="rays" id="ray12"></div>
+      
+     <div class="rays" id="ray13"></div>
+     <div class="rays" id="ray14"></div>
+     <div class="rays" id="ray15"></div>
+     <div class="rays" id="ray16"></div>
+     <div class="rays" id="ray17"></div>
+     <div class="rays" id="ray18"></div>
+     <div class="rays" id="ray19"></div>
+     <div class="rays" id="ray20"></div>
+     <div class="rays" id="ray21"></div>
+     <div class="rays" id="ray22"></div>
+     <div class="rays" id="ray23"></div>
+     <div class="rays" id="ray24"></div>
+    <div id='me'></div>
+<script type="text/javascript" href="sh.js"></script>
+<script>
+window.focus();
+
+//window.enableScrolling(false);
+var j=10;
+var k=10;
+var m=10;
+var step = 4;
+var top = 90;
+var left = 190;
+var ball=document.getElementById("ray");
+var ball2=document.getElementById("ray2");
+var ball3=document.getElementById("ray3");
+var ball4=document.getElementById("ray4");
+var ball5=document.getElementById("ray5");
+var ball6=document.getElementById("ray6");
+var ball7=document.getElementById("ray7");
+var ball8=document.getElementById("ray8");
+var ball9=document.getElementById("ray9");
+var ball10=document.getElementById("ray10");
+var ball11=document.getElementById("ray11");
+var ball12=document.getElementById("ray12");
+var ball13=document.getElementById("ray13");
+var ball14=document.getElementById("ray14");
+var ball15=document.getElementById("ray15");
+var ball16=document.getElementById("ray16");
+var ball17=document.getElementById("ray17");
+var ball18=document.getElementById("ray18");
+var ball19=document.getElementById("ray19");
+var ball20=document.getElementById("ray20");
+var ball21=document.getElementById("ray21");
+var ball22=document.getElementById("ray22");
+var ball23=document.getElementById("ray23");
+var ball24=document.getElementById("ray24");
+window.addEventListener("keydown", moveMe, false);
+var me=document.getElementById("me");
+
+
+function move(){
+   if ( m<2900){ 
+
+     ball.style.top=j+"px";
+     ball2.style.top=k+"px";
+     ball3.style.top=m+"px";
+     ball5.style.top=j+"px";
+     ball4.style.top=k+"px";
+     ball6.style.top=m+"px";
+     ball7.style.top=j+"px";
+     ball8.style.top=k+"px";
+     ball9.style.top=j+"px";
+
+     ball10.style.top=m+"px";
+     ball11.style.top=k+"px";
+     ball12.style.top=j+"px";
+     
+     ball13.style.top=k+"px";
+     ball14.style.top=j+"px";
+     ball15.style.top=m+"px";
+     ball16.style.top=k+"px";
+     ball17.style.top=m+"px";
+     ball18.style.top=j+"px";
+     ball19.style.top=m+"px";
+     ball20.style.top=k+"px";
+     ball21.style.top=k+"px";
+     ball22.style.top=j+"px";
+     ball23.style.top=m+"px";
+     ball24.style.top=j+"px";
+  
+     
+     j++;
+     k+=2;
+     m+=3;
+   }
+
+    setTimeout(move, 10);
+}
+
+    move();
+
+
+    
+      function moveMe(e){
+
+         if (e.which==37 || e.keyCode==37){
+           //alert('left');
+          	mvleft();
+         }
+         else if (e.which==39 || e.keyCode==39){
+          	mvright();
+         }
+      }
+
+      function mvleft(){
+        left -= step;
+        me.style.left = left + "px";
+      }
+
+      function mvright(){
+        left += step;
+        me.style.left = left + "px";
+      }
+
+</script>
+</body>
+</html>
